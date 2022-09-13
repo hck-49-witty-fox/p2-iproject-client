@@ -30,10 +30,11 @@ export default {
       if (this.inputMessage === '' || this.inputMessage === null) return;
 
       const message = {
-        username: this.inputUsername,
+        username: this.name,
         content: this.inputMessage,
       };
 
+      console.log(message);
       messagesRef.push(message);
       this.inputMessage = '';
     },
@@ -56,8 +57,11 @@ export default {
         });
       });
 
+      // this.username = this.name;
       this.messages = messages;
+      console.log(this.username, 'yaglag');
     });
+    // console.log(this.name);
   },
 };
 </script>
@@ -93,7 +97,7 @@ export default {
         </div>
         <div class="flex flex-col leading-tight">
           <div class="text-2xl mt-1 flex items-center">
-            <span class="text-gray-700 mr-3">{{ fullName }}</span>
+            <span class="text-gray-700 mr-3">{{ this.fullName }}</span>
           </div>
           <span class="text-lg text-gray-600">Junior Developer</span>
         </div>
@@ -147,8 +151,10 @@ export default {
     >
       <chat-bubble
         v-for="message in this.messages"
+        :name="this.name"
         :key="message.key"
         :message="message"
+        :dbMsg="this.messages"
       ></chat-bubble>
       <!--  
       <div class="chat-message">
