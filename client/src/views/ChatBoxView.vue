@@ -1,16 +1,29 @@
 <script>
+import { DataSnapshot } from '@firebase/database';
+import ChatBubble from '@/components/ChatBubble.vue';
 import db from '../db';
+import { mapState } from 'pinia';
+import { useYalawStore } from '../stores/yalaw';
 
 export default {
+  components: {
+    ChatBubble,
+  },
+
   data() {
     return {
       inputUsername: '',
       inputMessage: '',
+      messages: [],
     };
   },
 
+  computed: {
+    ...mapState(useYalawStore, ['name', 'fullName']),
+  },
+
   methods: {
-    //send to database
+    //send to database(firebase)
     sendMessage() {
       const messagesRef = db.database().ref('messages');
 
@@ -26,14 +39,33 @@ export default {
     },
   },
 
-  mounted() {},
+  mounted() {
+    // console.log(this.name, this.fullName);
+    const messagesRef = db.database().ref('messages');
+    messagesRef.on('value', snapshot => {
+      const msgData = snapshot.val();
+      const messages = [];
+
+      Object.keys(msgData).forEach(key => {
+        // console.log(msgData[key].content);
+
+        messages.push({
+          id: key,
+          username: msgData[key].username,
+          content: msgData[key].content,
+        });
+      });
+
+      this.messages = messages;
+    });
+  },
 };
 </script>
 
 <template>
   <!-- ChatBox-->
   <div
-    class="flex-1 container mx-auto p:2 sm:p-6 w-3/4 justify-between flex flex-col h-screen"
+    class="flex-1 container mx-auto p:2 sm:p-6 w-3/4 justify-between flex flex-col h-screen mt-20 cont-chat"
   >
     <div
       class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200"
@@ -61,7 +93,7 @@ export default {
         </div>
         <div class="flex flex-col leading-tight">
           <div class="text-2xl mt-1 flex items-center">
-            <span class="text-gray-700 mr-3">Anderson Vanhron</span>
+            <span class="text-gray-700 mr-3">{{ fullName }}</span>
           </div>
           <span class="text-lg text-gray-600">Junior Developer</span>
         </div>
@@ -109,10 +141,16 @@ export default {
     </div>
 
     <!-- chat bubble -->
-    <!-- <div
+    <div
       id="messages"
       class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"
     >
+      <chat-bubble
+        v-for="message in this.messages"
+        :key="message.key"
+        :message="message"
+      ></chat-bubble>
+      <!--  
       <div class="chat-message">
         <div class="flex items-end">
           <div
@@ -152,6 +190,8 @@ export default {
           />
         </div>
       </div>
+      -->
+      <!--  
       <div class="chat-message">
         <div class="flex items-end">
           <div
@@ -340,7 +380,7 @@ export default {
           />
         </div>
       </div>
-    </div> -->
+    --></div>
     <!-- chat bubble end -->
 
     <!-- message input -->
@@ -403,4 +443,8 @@ export default {
   <RouterView />
 </template>
 
-<style></style>
+<style>
+.cont-chat {
+  height: 70vh;
+}
+</style>

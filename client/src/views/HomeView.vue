@@ -1,6 +1,6 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
 import Navbar from '@/components/Navbar.vue';
+// import LoginView from '@/views/LoginView.vue';
 
 export default {
   components: {
@@ -10,10 +10,6 @@ export default {
 </script>
 
 <template>
-  <Navbar></Navbar>
-  <LoginView></LoginView>
-
-  <RouterView />
+  <!-- <LoginView></LoginView> -->
 </template>
-
 <style></style>
