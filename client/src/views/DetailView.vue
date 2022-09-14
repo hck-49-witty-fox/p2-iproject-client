@@ -1,30 +1,6 @@
-<script>
-import Post from '@/components/Post.vue';
-import { mapActions, mapState } from 'pinia';
-import { useYalawStore } from '../stores/yalaw';
-
-export default {
-  components: {
-    Post,
-  },
-
-  methods: {
-    ...mapActions(useYalawStore, ['fetchThread']),
-  },
-
-  computed: {
-    ...mapState(useYalawStore, ['threadData']),
-  },
-
-  async mounted() {
-    await this.fetchThread();
-    console.log(this.threadData);
-  },
-};
-</script>
+<script></script>
 
 <template>
-  <!-- component -->
   <div class="flex bg-blue-lightest flex flex-col font-sans">
     <div class="mt-12">
       <div class="bg-white mb-3">
@@ -37,12 +13,7 @@ export default {
       <div class="container mx-auto">
         <div class="flex w-960 mx-auto">
           <!-- this is post -->
-          <div class="w-2/3">
-            <Post
-              v-for="post in this.threadData"
-              :post="post"
-            ></Post>
-          </div>
+          <div class="w-2/3"></div>
 
           <!-- <div class="w-2/3"> -->
 

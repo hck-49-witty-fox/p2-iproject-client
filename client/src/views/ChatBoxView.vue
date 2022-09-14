@@ -203,27 +203,6 @@ export default {
     <!-- message input end-->
   </div>
 
-  <!-- <input
-    type="text"
-    v-model="inputUsername"
-    class="bg-blue"
-  />
-  <section class="chat-bubble">bubblibluw</section>
-
-  <form @submit.prevent="sendMessage">
-    <input
-      type="text"
-      name=""
-      id=""
-      v-model="inputMessage"
-    />
-    <input
-      type="submit"
-      value="ze mesasge"
-    />
-  </form> -->
-  <!-- Chat end -->
-
   <RouterView />
 </template>
 
