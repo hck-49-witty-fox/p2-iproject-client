@@ -26,4 +26,10 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach((to, from) => {
+  if (!localStorage.getItem('access_token') && to.name === 'chat') {
+    return { path: '/login' };
+  }
+});
+
 export default router;

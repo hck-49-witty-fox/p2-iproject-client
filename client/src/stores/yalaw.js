@@ -5,8 +5,8 @@ const baseURL = 'http://localhost:3000';
 export const useYalawStore = defineStore('Yalaw', {
   state: () => ({
     isLoggedIn: false,
-    name: '',
     fullName: '',
+    // name: '',
   }),
 
   actions: {
@@ -21,10 +21,22 @@ export const useYalawStore = defineStore('Yalaw', {
 
         this.router.push('/');
 
-        console.log(data);
+        // console.log(data);
         this.isLoggedIn = true;
-        this.name = data.name;
-        this.fullName = data.fullName;
+        // this.name = data.name;
+
+        localStorage.setItem('name', data.name);
+        localStorage.setItem('fullName', data.fullName);
+        // this.fullName = data.fullName;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
+    async logout() {
+      try {
+        localStorage.clear();
+        this.isLoggedIn = false;
       } catch (err) {
         console.log(err);
       }

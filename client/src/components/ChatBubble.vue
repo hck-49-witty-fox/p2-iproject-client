@@ -1,13 +1,17 @@
 <script>
-import { createDOMCompilerError } from '@vue/compiler-dom';
-
 export default {
+  // data() {
+  //   return {
+  //     name: '',
+  //   };
+  // },
+  // 'name
   props: ['message', 'name', 'dbMsg'],
 
   created() {
+    // this.name = localStorage.getItem('name');
     // console.log(...this.dbMsg.username);
     // this.dbMsg.forEach(el => el.username);
-    console.log(this.name);
   },
 };
 </script>

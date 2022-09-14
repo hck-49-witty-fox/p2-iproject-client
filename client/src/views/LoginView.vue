@@ -22,7 +22,7 @@ export default {
   },
 
   created() {
-    console.log(this.cred);
+    // console.log(this.cred);
   },
 };
 </script>
