@@ -9,6 +9,7 @@ import MyPlaylist from "../views/MyPlaylist.vue";
 import MyPlaylistDetail from "../views/MyPlaylistDetail.vue";
 import SearchPage from "../views/SearchPage.vue";
 import NewRelease from "../views/NewRelease.vue";
+import PlaylistDetail from "../views/PlaylistDetail.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -67,6 +68,11 @@ const router = createRouter({
           path: "new-release",
           name: "newrelease",
           component: NewRelease,
+        },
+        {
+          path: "playlist/:id",
+          name: "playlistdetail",
+          component: PlaylistDetail,
         },
       ],
     },
