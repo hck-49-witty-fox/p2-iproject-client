@@ -247,5 +247,27 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async getAlbumDetail(id) {
+      try {
+        this.loading = true;
+        const response = await axios.get(
+          `${BASE_URL}/api/get-album?albumId=${id}`,
+          {
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          }
+        );
+        this.album = response.data.data;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
