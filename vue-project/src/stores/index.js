@@ -472,5 +472,18 @@ export const useIndexStore = defineStore("index", {
         });
       }
     },
+
+    async spotify() {
+      try {
+        const { user, session, error } = await supabase.auth.signIn({
+          provider: "spotify",
+        });
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      }
+    },
   },
 });
