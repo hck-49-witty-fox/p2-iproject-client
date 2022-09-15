@@ -459,5 +459,18 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async twitter() {
+      try {
+        const { user, session, error } = await supabase.auth.signIn({
+          provider: "twitter",
+        });
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      }
+    },
   },
 });
