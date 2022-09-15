@@ -55,7 +55,7 @@ const router = createRouter({
     // /movie/nowplaying
     {
       path: '/movie/:id',
-      name: 'nowplaying',
+      name: 'n',
       component: NowPlayingView
     },
   ]
