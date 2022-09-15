@@ -408,5 +408,32 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async addSong(playlistId, songId) {
+      try {
+        this.loading = songId;
+        await axios.patch(
+          `${BASE_URL}/playlist/${playlistId}/${songId}`,
+          {},
+          {
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          }
+        );
+        await this.getMyPlaylistDetail(playlistId);
+        Toast.fire({
+          icon: "success",
+          title: "Song added successfully",
+        });
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
