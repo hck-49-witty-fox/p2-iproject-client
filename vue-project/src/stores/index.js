@@ -97,5 +97,26 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async register(user) {
+      try {
+        this.loading = true;
+        const response = await axios.post(`${BASE_URL}/register`, {
+          username: user.username,
+          email: user.email,
+          name: user.name,
+          password: user.password,
+        });
+        localStorage.setItem("access_token", response.data.access_token);
+        this.statusRegis = 2;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
