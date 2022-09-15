@@ -367,5 +367,27 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async addPlaylist(field) {
+      try {
+        this.loading = "add";
+        const formData = new FormData();
+        formData.append("img", field.img);
+        formData.append("name", field.name);
+        await axios.post(`${BASE_URL}/playlist`, formData, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        await this.getMyPlaylist();
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
