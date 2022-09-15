@@ -485,5 +485,39 @@ export const useIndexStore = defineStore("index", {
         });
       }
     },
+
+    async sosmedLogin() {
+      try {
+        const token = JSON.parse(localStorage.getItem("supabase.auth.token"));
+        const response = await axios.get(`${BASE_URL}/sign-in`, {
+          headers: {
+            access_token: token.currentSession.access_token,
+          },
+        });
+        localStorage.setItem("access_token", response.data.access_token);
+        if (response.data.isPremium) {
+          this.router.push("/");
+        } else {
+          this.router.push("/signup");
+        }
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      }
+    },
+
+    supabase() {
+      supabase.auth.onAuthStateChange((_, session) => {
+        this.sosmedLogin();
+      });
+    },
+
+    logout() {
+      this.statusRegis = 1;
+      localStorage.clear();
+      this.router.push("/signin");
+    },
   },
 });
