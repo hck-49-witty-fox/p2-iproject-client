@@ -435,5 +435,29 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async removeSong(playlistId, songId) {
+      try {
+        this.loading = songId;
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await axios.delete(`${BASE_URL}/playlist/${playlistId}/${songId}`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        await this.getMyPlaylistDetail(playlistId);
+        Toast.fire({
+          icon: "success",
+          title: "Song deleted successfully",
+        });
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
