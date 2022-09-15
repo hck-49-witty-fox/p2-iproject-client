@@ -389,5 +389,24 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async searchSong(q) {
+      try {
+        this.loading = true;
+        const response = await axios.get(`${BASE_URL}/api/search-song?q=${q}`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        this.song = response.data.data;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
