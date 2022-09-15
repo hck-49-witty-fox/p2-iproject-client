@@ -11,6 +11,7 @@ import SearchPage from "../views/SearchPage.vue";
 import NewRelease from "../views/NewRelease.vue";
 import PlaylistDetail from "../views/PlaylistDetail.vue";
 import SignUp from "../views/SignUp.vue";
+import SignIn from "../views/SignIn.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -81,6 +82,16 @@ const router = createRouter({
       path: "/signup",
       name: "signup",
       component: SignUp,
+    },
+    {
+      path: "/signin",
+      name: "signin",
+      component: SignIn,
+      beforeEnter: (to, from) => {
+        if (localStorage.getItem("access_token")) {
+          return { path: "/" };
+        }
+      },
     },
   ],
 });
