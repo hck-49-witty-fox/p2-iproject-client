@@ -291,5 +291,24 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async createTrxDana() {
+      try {
+        this.loading = "dana";
+        const response = await axios.get(`${BASE_URL}/transaction/dana`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        this.payment = response.data;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
