@@ -34,7 +34,7 @@ export default {
 
         <div class="forum flex">
           <router-link
-            to="/"
+            to="/tech"
             class="block text-white bg-blue-700 ml-3 rounded md:bg-transparent md:p-0 dark:text-white py-2"
             aria-current="page"
             >Tech

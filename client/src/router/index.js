@@ -4,6 +4,7 @@ import ChatView from '@/views/ChatBoxView.vue';
 import LoginView from '@/views/LoginView.vue';
 import DetailView from '@/views/DetailView.vue';
 import RegisterView from '@/views/RegisterView.vue';
+import TechThreadView from '@/views/TechThreadView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,12 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: RegisterView,
+    },
+
+    {
+      path: '/tech',
+      name: 'tech-thread',
+      component: TechThreadView,
     },
   ],
 });

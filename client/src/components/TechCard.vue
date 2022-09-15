@@ -1,30 +1,18 @@
 <script>
-import { mapActions, mapState } from 'pinia';
-import { useYalawStore } from '../stores/yalaw';
-
 export default {
-  props: ['post'],
+  props: ['tech'],
 
-  computed: {
-    ...mapState(useYalawStore, ['threadById']),
+  created() {
+    console.log(this.tech);
   },
-
-  methods: {
-    ...mapActions(useYalawStore, ['fetchThreadById']),
-
-    // fetch() {
-    //   this.fetchThreadById(this.threadById.id);
-    // },
-  },
-  mounted() {},
 };
 </script>
+
 <template>
+  <!-- this is post -->
+
   <!-- post component -->
-  <div
-    @click.prevent="this.fetchThreadById(post.id)"
-    class="py-2"
-  >
+  <div class="py-2">
     <div
       class="flex border border-grey-light-alt hover:border-grey rounded bg-white cursor-pointer"
     >
@@ -66,14 +54,12 @@ export default {
           <a
             href="#"
             class="text-grey mx-1 no-underline hover:underline"
-            >u/{{ this?.post?.User?.username }}</a
+            >u/{{ this.tech.author }}</a
           >
           <span class="text-grey">2 hours ago</span>
         </div>
         <div>
-          <h2 class="text-lg font-medium mb-1">
-            {{ this.post.title }}
-          </h2>
+          <h2 class="text-lg font-medium mb-1">{{ this.tech.title }}</h2>
         </div>
         <div class="inline-flex items-center my-1">
           <div class="flex hover:bg-grey-lighter p-1">
@@ -129,6 +115,5 @@ export default {
       </div>
     </div>
   </div>
-  <!-- post component -->
 </template>
 <style></style>

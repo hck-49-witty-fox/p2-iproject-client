@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-const baseURL = 'https://yalaw-forum.herokuapp.com/';
+const baseURL = 'http://localhost:3000';
+// const baseURL = 'https://yalaw-forum.herokuapp.com';
 
 export const useYalawStore = defineStore('Yalaw', {
   state: () => ({
     isLoggedIn: false,
     fullName: '',
     threadData: [],
+    techData: [],
     threadById: {},
   }),
 
@@ -67,8 +69,17 @@ export const useYalawStore = defineStore('Yalaw', {
       try {
         const { data } = await axios.get(`${baseURL}/`);
 
-        // console.log(data.data);
         this.threadData = data.data;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
+    async fetchTechNews() {
+      try {
+        const { data } = await axios.get(`${baseURL}/thread/tech`);
+
+        this.techData = data.data;
       } catch (err) {
         console.log(err);
       }
@@ -76,7 +87,7 @@ export const useYalawStore = defineStore('Yalaw', {
 
     async fetchThreadById(id) {
       try {
-        console.log(id);
+        // console.log(id);
         const { data } = await axios.get(`${baseURL}/thread/${id}`);
 
         console.log(data);
