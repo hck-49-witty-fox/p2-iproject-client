@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Hearify</title>
+</head>
+
+<body class="bg-white dark:bg-gray-900">
+  <!-- Navbar -->
+  <nav style="display: nones" class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <div class="flex md:order-2">
+        <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false"
+          class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
+          <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Search</span>
+        </button>
+        <div class="hidden relative md:block">
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Search icon</span>
+          </div>
+          <input type="text" id="search-navbar"
+            class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search song...">
+        </div>
+        <button data-collapse-toggle="navbar-search" type="button"
+          class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-search" aria-expanded="false">
+          <span class="sr-only">Open menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-search">
+        <div class="relative mt-3 md:hidden">
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <input type="text" id="search-navbar"
+            class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search song...">
+        </div>
+      </div>
+      <a href="https://flowbite.com/" class="flex items-center">
+        <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Hearify</span>
+      </a>
+      <div class="flex items-center md:order-2">
+        <button type="button"
+          class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+          id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+          data-dropdown-placement="bottom">
+          <span class="sr-only">Open user menu</span>
+          <div class="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
+            <svg class="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+              </path>
+            </svg>
+          </div>
+        </button>
+        <!-- Dropdown menu -->
+        <div
+          class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+          id="user-dropdown">
+          <div class="py-3 px-4">
+            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+          </div>
+          <ul class="py-1" aria-labelledby="user-menu-button">
+            <li>
+              <a href="#"
+                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+            </li>
+            <li>
+              <a href="#"
+                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                out</a>
+            </li>
+          </ul>
+        </div>
+        <button data-collapse-toggle="mobile-menu-2" type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="mobile-menu-2" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+        <ul
+          class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">My
+              Playlist</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">New
+              Release</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Genre</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section style="display: none;" class="bg-white dark:bg-gray-900">
+    <div class="py-4 px-2 mx-auto max-w-screen-xl lg:py-8 lg:px-3">
+      <div class="mx-auto mb-4 lg:mb-8">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Featured Playlist</h2>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Page -->
+  <section style="display: none;" class="max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="mx-auto mb-2 lg:mb-4">
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Artist: NIKI</h2>
+    </div>
+    <div
+      class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px">
+        <li class="mr-2">
+          <a href="#"
+            class="inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500"
+            aria-current="page">Song</a>
+        </li>
+        <li class="mr-2">
+          <a href="#"
+            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Album</a>
+        </li>
+        <li class="mr-2">
+          <a href="#"
+            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Playlist</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Song -->
+    <div style="display: nones;"
+      class="py-4 px-2 mx-auto max-w-screen-xl lg:py-8 lg:px-3 md:container md:mx-auto overflow-x-auto relative">
+      <div class="pb-4 bg-white dark:bg-gray-900">
+        <label for="table-search" class="sr-only">Search</label>
+        <div class="relative mt-1">
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <input type="text" id="table-search"
+            class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search for items" />
+        </div>
+      </div>
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-transparent dark:text-gray-400">
+          <tr>
+            <th scope="col" class="p-4">#</th>
+            <th scope="col" class="py-3 px-6">Title</th>
+            <th scope="col" class="py-3 px-6">Artist</th>
+            <th scope="col" class="py-3 px-6">Preview</th>
+            <th scope="col" class="py-3 px-6">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td class="p-4 w-4">
+              1
+            </td>
+            <td class="flex items-center gap-2 py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <img src="https://i.scdn.co/image/ab67616d00001e020f4e6e2f664c64ad3ac74b18" width="64"
+                class="rounded">High
+              School in Jakarta
+            </td>
+            <td class="py-4 px-6">NIKI</td>
+            <td class="py-4 px-6"><audio controls="" class="g-blue-600">
+                <source
+                  src="https://p.scdn.co/mp3-preview/cb0e9162a2c07db1038be3cf4409b3d463009b00?cid=06b481f64b414db6a8ebc6eecf1e969e"
+                  type="audio/ogg">
+                <source
+                  src="https://p.scdn.co/mp3-preview/cb0e9162a2c07db1038be3cf4409b3d463009b00?cid=06b481f64b414db6a8ebc6eecf1e969e"
+                  type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio></td>
+            <td class="py-4 px-6">
+              <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Album and Playlist -->
+    <section style="display: nones;" class="bg-white dark:bg-gray-900">
+      <div class="py-4 px-2 mx-auto max-w-screen-xl lg:py-8 lg:px-3">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+                alt="Santai Sejenak">
+            </a>
+            <div class="px-5 pb-5">
+              <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="#">Santai Sejenak</a>
+              </h3>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+                alt="Santai Sejenak">
+            </a>
+            <div class="px-5 pb-5">
+              <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="#">Santai Sejenak</a>
+              </h3>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+                alt="Santai Sejenak">
+            </a>
+            <div class="px-5 pb-5">
+              <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="#">Santai Sejenak</a>
+              </h3>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+                alt="Santai Sejenak">
+            </a>
+            <div class="px-5 pb-5">
+              <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="#">Santai Sejenak</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- Registration Account Info -->
+  <section style="display: none;" class="max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="py-8 bg-white dark:bg-gray-900 lg:py-0">
+      <div class="clg:flex">
+        <div class="flex items-center mx-auto md:w-[42rem] px-4 md:px-8 xl:px-0">
+          <div class="w-full">
+            <div class="flex items-center justify-center mb-8 space-x-4 lg:hidden">
+              <a href="#" class="flex items-center text-2xl font-semibold">
+                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" />
+                <span class="text-gray-900 dark:text-white">Flowbite</span>
+              </a>
+            </div>
+            <ol
+              class="flex items-center mb-6 text-sm font-medium text-center text-gray-500 dark:text-gray-400 lg:mb-12 sm:text-base">
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <div class="mr-2 sm:mb-2 sm:mx-auto">1</div>
+                  Account <span class="hidden sm:inline-flex">Info</span>
+                </div>
+              </li>
+              <li
+                class="flex items-center after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <div class="mr-2 sm:mb-2 sm:mx-auto">2</div>
+                  Confirmation
+                </div>
+              </li>
+              <li class="flex items-center sm:block">
+                <div class="mr-2 sm:mb-2 sm:mx-auto">3</div>
+                Payment <span class="hidden sm:inline-flex">Info</span>
+              </li>
+            </ol>
+            <h1 class="mb-4 text-2xl font-extrabold tracking-tight text-gray-900 sm:mb-6 leding-tight dark:text-white">
+              Account details</h1>
+            <form action="#">
+              <div class="grid gap-5 my-6 sm:grid-cols-2">
+                <div>
+                  <label for="full-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full
+                    Name</label>
+                  <input type="text" name="full-name" id="full-name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="John Doe" required="">
+                </div>
+                <div>
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                    email</label>
+                  <input type="email" name="email" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="name@company.com" required="">
+                </div>
+                <div>
+                  <label for="username"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                  <input type="username" name="username" id="username" placeholder="johndoe"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    required="">
+                </div>
+                <div>
+                  <label for="password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                  <input type="password" name="password" id="password" placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    required="">
+                </div>
+              </div>
+              <div class="flex space-x-3">
+                <button type="submit"
+                  class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 sm:py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Next</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Confirmation -->
+  <section style="display: none;" class="max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="py-8 bg-white dark:bg-gray-900 lg:py-0">
+      <div class="lg:flex">
+        <div class="flex items-center mx-auto md:w-[42rem] px-4 md:px-8 xl:px-0">
+          <div class="w-full">
+            <div class="flex items-center justify-center mb-8 space-x-4 lg:hidden">
+              <a href="#" class="flex items-center text-2xl font-semibold">
+                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" />
+                <span class="text-gray-900 dark:text-white">Flowbite</span>
+              </a>
+            </div>
+            <ol
+              class="flex items-center mb-6 text-sm font-medium text-center text-gray-500 dark:text-gray-400 lg:mb-12 sm:text-base">
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Account <span class="hidden sm:inline-flex">Info</span>
+                </div>
+              </li>
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <div class="mr-2 sm:mb-2 sm:mx-auto">2</div>
+                  Confirmation
+                </div>
+              </li>
+              <li class="flex items-center sm:block">
+                <div class="mr-2 sm:mb-2 sm:mx-auto">3</div>
+                Payment <span class="hidden sm:inline-flex">Info</span>
+              </li>
+            </ol>
+            <h1 class="mb-2 text-2xl font-extrabold tracking-tight text-gray-900 leding-tight dark:text-white">Verify
+              your email address</h1>
+            <p class="font-light text-gray-500 dark:text-gray-400">We emailed you a six-digit code to <span
+                class="font-medium text-gray-900 dark:text-white">name@company.com</span>. Enter the code below to
+              confirm your email address.</p>
+            <form action="#">
+              <div class="flex my-4 space-x-2 sm:space-x-4 md:my-6">
+                <div>
+                  <label for="code-1" class="sr-only">First code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-1', 'code-2')" id="code-1"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+                <div>
+                  <label for="code-2" class="sr-only">Second code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-1', 'code-3')" id="code-2"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+                <div>
+                  <label for="code-3" class="sr-only">Third code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-2', 'code-4')" id="code-3"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+                <div>
+                  <label for="code-4" class="sr-only">Fourth code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-3', 'code-5')" id="code-4"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+                <div>
+                  <label for="code-5" class="sr-only">Fivth code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-4', 'code-6')" id="code-5"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+                <div>
+                  <label for="code-6" class="sr-only">Sixth code</label>
+                  <input type="text" maxlength="1" onkeyup="focusNextInput(this, 'code-5', 'code-6')" id="code-6"
+                    class="block w-12 h-12 py-3 text-2xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg sm:py-4 sm:text-4xl sm:w-16 sm:h-16 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
+                </div>
+              </div>
+              <p
+                class="p-4 mb-4 text-sm text-gray-500 rounded-lg bg-gray-50 dark:text-gray-400 md:mb-6 dark:bg-gray-800">
+                Make sure to keep this window open while check your inbox.</p>
+              <div class="flex space-x-3">
+                <a href="#"
+                  class="text-center items-center w-full py-2.5 sm:py-3.5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Prev:
+                  Account Info</a>
+                <button type="submit"
+                  class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 sm:py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Verify
+                  account</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Payment Info -->
+  <section style="display: none;" class="max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="py-8 bg-white dark:bg-gray-900 lg:py-0">
+      <div class="lg:flex">
+        <div class="flex items-center mx-auto md:w-[42rem] px-4 md:px-8 xl:px-0">
+          <div class="w-full">
+            <div class="flex items-center justify-center mb-8 space-x-4 lg:hidden">
+              <a href="#" class="flex items-center text-2xl font-semibold">
+                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" />
+                <span class="text-gray-900 dark:text-white">Flowbite</span>
+              </a>
+            </div>
+            <ol
+              class="flex items-center mb-6 text-sm font-medium text-center text-gray-500 dark:text-gray-400 lg:mb-12 sm:text-base">
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Account <span class="hidden sm:inline-flex">Info</span>
+                </div>
+              </li>
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Confirmation
+                </div>
+              </li>
+              <li class="flex items-center text-blue-600 dark:text-blue-500 sm:block">
+                <div class="mr-2 sm:mb-2 sm:mx-auto">3</div>
+                Payment <span class="hidden sm:inline-flex">Info</span>
+              </li>
+            </ol>
+            <h1 class="mb-6 text-2xl font-extrabold tracking-tight text-gray-900 leding-tight dark:text-white">Choose
+              payment method</h1>
+            <button type="button"
+              class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+              <svg aria-hidden="true" class="mt-1 mr-2 -ml-1 w-6 h-5" viewBox="0 0 2405 2501" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g fill="#f3ba2f">
+                  <path
+                    d="M611.59 840.42l388.4-388.39 388.6 388.59 226-226L999.99 0 385.6 614.42l225.99 226M.006 999.969l226.007-226.007 225.992 225.993L226 1225.96zM611.59 1159.58l388.4 388.39 388.59-388.58 226.12 225.88-.11.12L999.99 2000l-614.41-614.4-.32-.32 226.33-225.7M1548.013 1000.093l226.007-226.006 225.992 225.992-226.006 226.007z" />
+                  <path
+                    d="M1229.22 999.88h.1L999.99 770.55 830.51 940.03h-.01l-19.47 19.48-40.16 40.17-.32.31.32.33 229.12 229.13 229.33-229.33.11-.13-.21-.11" />
+                </g>
+              </svg>
+              Pay with Binance Coin
+            </button>
+            <button type="button"
+              class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 mr-2 mb-2">
+              <svg aria-hidden="true" class="mr-2 -ml-1 w-9 h-6" fill="none" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 300 110.71">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: #010101;
+                    }
+                  </style>
+                </defs>
+                <title>QRIS</title>
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <polygon class="cls-1"
+                      points="287.71 67.86 287.71 58.33 287.71 39.29 259.14 39.29 240.09 39.29 240.09 29.76 287.71 29.76 287.71 10.71 240.09 10.71 211.52 10.71 211.52 29.76 211.52 39.29 211.52 58.33 240.09 58.33 259.14 58.33 259.14 67.86 211.52 67.86 211.52 86.91 259.14 86.91 287.71 86.91 287.71 67.86" />
+                    <rect class="cls-1" x="182.95" y="10.71" width="19.05" height="76.19" />
+                    <polygon class="cls-1"
+                      points="97.24 10.71 97.24 29.76 154.38 29.76 154.38 39.29 116.28 39.29 97.24 39.29 97.24 58.33 97.24 86.91 116.28 86.91 116.28 58.62 144.86 86.91 173.43 86.91 143.62 58.33 154.38 58.33 173.43 58.33 173.43 39.29 173.43 29.76 173.43 10.71 154.38 10.71 97.24 10.71" />
+                    <path class="cls-1" d="M40.09,58.33h19v-19h-19Zm4.77-14.28h9.52v9.52H44.86Z" />
+                    <path class="cls-1"
+                      d="M30.57,10.71H13.9a2.41,2.41,0,0,0-1.68.7,2.38,2.38,0,0,0-.7,1.69V84.52a2.38,2.38,0,0,0,.7,1.69,2.4,2.4,0,0,0,1.68.69H59.14v-19H30.57Z" />
+                    <path class="cls-1"
+                      d="M85.33,10.71H40.09V29.76H68.67V58.33h19V13.1A2.41,2.41,0,0,0,87,11.41,2.44,2.44,0,0,0,85.33,10.71Z" />
+                    <rect class="cls-1" x="68.67" y="67.86" width="19.05" height="42.86" />
+                    <path class="cls-1"
+                      d="M38.1,0H2.38A2.39,2.39,0,0,0,0,2.38V38.1H4.76v-31A2.39,2.39,0,0,1,7.14,4.76h31Z" />
+                    <path class="cls-1"
+                      d="M295.24,61.9v31a2.39,2.39,0,0,1-2.38,2.38h-31V100h35.72A2.39,2.39,0,0,0,300,97.62V61.9Z" />
+                  </g>
+                </g>
+              </svg>
+              Pay with QRIS
+            </button>
+            <!-- Pay BNB -->
+            <section>
+              <h2 class="mt-4 text-xl tracking-tight font-light text-gray-900 dark:text-white">Send 0.00123 BNB (BEP20)
+                to: </h2>
+              <h2 class="text-center mt-4 text-xl tracking-tight font-light text-gray-900 dark:text-white">0x7042447d044aff8a554e12e2d291fb150809326c</h2>
+              <div class="flex justify-center mt-3">
+                <img src="https://miro.medium.com/max/1400/0*Ys8T1S0PKkrzKtV-" class="w-1/3 max-w-xl h-auto rounded-lg"
+                  alt="image description">
+              </div>
+              <div class="flex justify-center items-center gap-3 mt-4">
+                <img width="50px" class="filter grayscale hover:grayscale-0"
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Binance-coin-bnb-logo.png">
+                <h2 class="text-2xl tracking-tight font-light text-gray-900 dark:text-white">Binance Coin (BNB)</h2>
+              </div>
+            </section>
+            <!-- Pay QRIS -->
+            <section style="display: none;">
+              <div class="flex justify-center mt-6">
+                <img src="https://miro.medium.com/max/1400/0*Ys8T1S0PKkrzKtV-" class="w-1/3 max-w-xl h-auto rounded-lg"
+                  alt="image description">
+              </div>
+              <div class="flex justify-center items-center gap-3">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://1.bp.blogspot.com/-n_jPjNl97nw/YIJ78WnloPI/AAAAAAAACks/xPjLQ2YpcXwyPf64C708UExQOrJitxHSgCNcBGAsYHQ/s2048/ShopeePay.png">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://image.cermati.com/v1585904886/o81yliwckjhywelnx13a.png">
+              </div>
+              <div class="flex justify-center items-center gap-3">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://harianrakyataceh.com/wp-content/uploads/2021/07/beli-saldo-paypal-via-linkaja.png">
+                <img width="100px" class="filter grayscale brightness-200 contrast-50 hover:grayscale-0"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/2560px-Logo_dana_blue.svg.png">
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Verified -->
+  <section style="display: none;" class="max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="py-8 bg-white dark:bg-gray-900 lg:py-0">
+      <div class="lg:flex">
+        <div class="flex items-center mx-auto md:w-[42rem] px-4 md:px-8 xl:px-0">
+          <div class="w-full">
+            <div class="flex items-center justify-center mb-8 space-x-4 lg:hidden">
+              <a href="#" class="flex items-center text-2xl font-semibold">
+                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" />
+                <span class="text-gray-900 dark:text-white">Flowbite</span>
+              </a>
+            </div>
+            <ol
+              class="flex items-center mb-6 text-sm font-medium text-center text-gray-500 dark:text-gray-400 lg:mb-12 sm:text-base">
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Account <span class="hidden sm:inline-flex">Info</span>
+                </div>
+              </li>
+              <li
+                class="flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-12 after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                <div
+                  class="flex items-center sm:block after:content-['/'] sm:after:hidden after:mx-2 after:font-light after:text-gray-200 dark:after:text-gray-500">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Confirmation
+                </div>
+              </li>
+              <li class="flex items-center text-blue-600 dark:text-blue-500">
+                <div class="flex items-center sm:block">
+                  <svg class="w-4 h-4 mr-2 sm:mb-2 sm:w-6 sm:h-6 sm:mx-auto shrink-0" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Payment <span class="hidden sm:inline-flex">Info</span>
+                </div>
+              </li>
+            </ol>
+            <svg class="w-12 h-12 mb-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <h1 class="mb-2 text-2xl font-extrabold tracking-tight text-gray-900 leding-tight dark:text-white">Verified
+            </h1>
+            <p class="mb-4 font-light text-gray-500 dark:text-gray-400 md:mb-6">You have successfully verified your
+              account.</p>
+            <a href="#"
+              class="block w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 sm:py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log
+              in to your Account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Form -->
+  <section style="display: none">
+    <!-- Modal toggle -->
+    <button
+      class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      type="button" data-modal-toggle="authentication-modal">
+      Toggle modal
+    </button>
+    <div style="
+            position: fixed;
+            background-color: black;
+            opacity: 30%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          "></div>
+    <!-- Main modal -->
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+      class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex">
+      <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <button type="button"
+            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+            data-modal-toggle="authentication-modal">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+          <div class="py-6 px-6 lg:px-8">
+            <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
+            <form class="space-y-6" action="#">
+              <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
+                  email</label>
+                <input type="email" name="email" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  placeholder="name@company.com" required>
+              </div>
+              <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
+                  password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  required>
+              </div>
+              <div class="flex justify-between">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value=""
+                      class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                      required>
+                  </div>
+                  <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember
+                    me</label>
+                </div>
+                <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+              </div>
+              <button type="submit"
+                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+                to your account</button>
+              <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Confirmation -->
+  <div id="popup-modal" style="display: none;" tabindex="-1"
+    class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center flex"
+    aria-modal="true" role="dialog">
+    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+      <div style="
+          z-index: 99;
+          position: fixed;
+          background-color: black;
+          opacity: 30%;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        "></div>
+      <div style="z-index: 100" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button @click.prevent="logoutAlert" type="button"
+          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          data-modal-toggle="popup-modal">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+        <div class="p-6 text-center">
+          <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+            Are you sure you want to log out?
+          </h3>
+          <button data-modal-toggle="popup-modal" type="button"
+            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+            Yes, I'm sure
+          </button>
+          <button data-modal-toggle="popup-modal" type="button"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+            No, cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card -->
+  <section style="display: none;" class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="mx-auto mb-8 lg:mb-16">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Playlist</h2>
+        <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of
+          open-source web components and elements built with the utility classes from Tailwind</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img class="p-4 w-full rounded-lg" src="https://i.scdn.co/image/ab67706f00000003cc5fe318480bddd3012cf4bd"
+              alt="Santai Sejenak">
+          </a>
+          <div class="px-5 pb-5">
+            <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <a href="#">Santai Sejenak</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table -->
+  <div style="display: none"
+    class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 md:container md:mx-auto overflow-x-auto relative">
+    <div class="pb-4 bg-white dark:bg-gray-900">
+      <label for="table-search" class="sr-only">Search</label>
+      <div class="relative mt-1">
+        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
+            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <input type="text" id="table-search"
+          class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Search for items" />
+      </div>
+    </div>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-transparent dark:text-gray-400">
+        <tr>
+          <th scope="col" class="p-4">#</th>
+          <th scope="col" class="py-3 px-6">Title</th>
+          <th scope="col" class="py-3 px-6">Artist</th>
+          <th scope="col" class="py-3 px-6">Preview</th>
+          <th scope="col" class="py-3 px-6">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="p-4 w-4">
+            1
+          </td>
+          <td class="flex items-center gap-2 py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <img src="https://i.scdn.co/image/ab67616d00001e020f4e6e2f664c64ad3ac74b18" width="64" class="rounded">High
+            School in Jakarta
+          </td>
+          <td class="py-4 px-6">NIKI</td>
+          <td class="py-4 px-6"><audio controls="" class="g-blue-600">
+              <source
+                src="https://p.scdn.co/mp3-preview/cb0e9162a2c07db1038be3cf4409b3d463009b00?cid=06b481f64b414db6a8ebc6eecf1e969e"
+                type="audio/ogg">
+              <source
+                src="https://p.scdn.co/mp3-preview/cb0e9162a2c07db1038be3cf4409b3d463009b00?cid=06b481f64b414db6a8ebc6eecf1e969e"
+                type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio></td>
+          <td class="py-4 px-6">
+            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Login -->
+  <section style="display: none;" class="bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto">
+      <div class="mb-6 text-center lg:hidden">
+        <a href="#" class="inline-flex items-center text-2xl font-semibold text-gray-900 lg:hidden dark:text-white">
+          <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+          Flowbite
+        </a>
+      </div>
+      <div class="w-full col-span-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800 md:mt-0 sm:max-w-lg xl:p-0">
+        <div class="p-6 space-y-4 lg:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 sm:text-2xl dark:text-white">
+            Welcome back
+          </h1>
+          <div class="items-center space-y-3 sm:space-x-4 sm:space-y-0 sm:flex">
+            <a href="#"
+              class="w-full inline-flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              <svg class="w-5 h-5 mr-2" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_13183_10121)">
+                  <path
+                    d="M20.3081 10.2303C20.3081 9.55056 20.253 8.86711 20.1354 8.19836H10.7031V12.0492H16.1046C15.8804 13.2911 15.1602 14.3898 14.1057 15.0879V17.5866H17.3282C19.2205 15.8449 20.3081 13.2728 20.3081 10.2303Z"
+                    fill="#3F83F8" />
+                  <path
+                    d="M10.7019 20.0006C13.3989 20.0006 15.6734 19.1151 17.3306 17.5865L14.1081 15.0879C13.2115 15.6979 12.0541 16.0433 10.7056 16.0433C8.09669 16.0433 5.88468 14.2832 5.091 11.9169H1.76562V14.4927C3.46322 17.8695 6.92087 20.0006 10.7019 20.0006V20.0006Z"
+                    fill="#34A853" />
+                  <path
+                    d="M5.08857 11.9169C4.66969 10.6749 4.66969 9.33008 5.08857 8.08811V5.51233H1.76688C0.348541 8.33798 0.348541 11.667 1.76688 14.4927L5.08857 11.9169V11.9169Z"
+                    fill="#FBBC04" />
+                  <path
+                    d="M10.7019 3.95805C12.1276 3.936 13.5055 4.47247 14.538 5.45722L17.393 2.60218C15.5852 0.904587 13.1858 -0.0287217 10.7019 0.000673888C6.92087 0.000673888 3.46322 2.13185 1.76562 5.51234L5.08732 8.08813C5.87733 5.71811 8.09302 3.95805 10.7019 3.95805V3.95805Z"
+                    fill="#EA4335" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_13183_10121">
+                    <rect width="20" height="20" fill="white" transform="translate(0.5)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Log in with Google
+            </a>
+            <a href="#"
+              class="w-full inline-flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              <svg class="w-5 h-5 mr-2 text-gray-900 dark:text-white" viewBox="0 0 21 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_13183_29163)">
+                  <path
+                    d="M18.6574 15.5863C18.3549 16.2851 17.9969 16.9283 17.5821 17.5196C17.0167 18.3257 16.5537 18.8838 16.1969 19.1936C15.6439 19.7022 15.0513 19.9627 14.4168 19.9775C13.9612 19.9775 13.4119 19.8479 12.7724 19.585C12.1308 19.3232 11.5412 19.1936 11.0021 19.1936C10.4366 19.1936 9.83024 19.3232 9.18162 19.585C8.53201 19.8479 8.00869 19.985 7.60858 19.9985C7.00008 20.0245 6.39356 19.7566 5.78814 19.1936C5.40174 18.8566 4.91842 18.2788 4.33942 17.4603C3.71821 16.5863 3.20749 15.5727 2.80738 14.4172C2.37887 13.1691 2.16406 11.9605 2.16406 10.7904C2.16406 9.45009 2.45368 8.29407 3.03379 7.32534C3.4897 6.54721 4.09622 5.9334 4.85533 5.4828C5.61445 5.03219 6.43467 4.80257 7.31797 4.78788C7.80129 4.78788 8.4351 4.93738 9.22273 5.2312C10.0081 5.52601 10.5124 5.67551 10.7335 5.67551C10.8988 5.67551 11.4591 5.5007 12.4088 5.15219C13.3069 4.82899 14.0649 4.69517 14.6859 4.74788C16.3685 4.88368 17.6327 5.54699 18.4734 6.74202C16.9685 7.65384 16.2241 8.93097 16.2389 10.5693C16.2525 11.8454 16.7154 12.9074 17.6253 13.7506C18.0376 14.1419 18.4981 14.4444 19.0104 14.6592C18.8993 14.9814 18.7821 15.29 18.6574 15.5863V15.5863ZM14.7982 0.400358C14.7982 1.40059 14.4328 2.3345 13.7044 3.19892C12.8254 4.22654 11.7623 4.82035 10.6093 4.72665C10.5947 4.60665 10.5861 4.48036 10.5861 4.34765C10.5861 3.38743 11.0041 2.3598 11.7465 1.51958C12.1171 1.09416 12.5884 0.740434 13.16 0.458257C13.7304 0.18029 14.2698 0.0265683 14.7772 0.000244141C14.7921 0.133959 14.7982 0.267682 14.7982 0.400345V0.400358Z"
+                    fill="currentColor" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_13183_29163">
+                    <rect width="20" height="20" fill="white" transform="translate(0.5)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Log in with Apple
+            </a>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+            <div class="px-5 text-center text-gray-500 dark:text-gray-400">
+              or
+            </div>
+            <div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+          </div>
+          <form class="space-y-4 lg:space-y-6" action="#">
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+              <input type="email" name="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Enter your email" required="" />
+            </div>
+            <div>
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" name="password" id="password" placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required="" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="remember" aria-describedby="remember" type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                    required="" />
+                </div>
+                <div class="ml-3 text-sm">
+                  <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                </div>
+              </div>
+              <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Forgot
+                password?</a>
+            </div>
+            <button type="submit"
+              class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Sign in to your account
+            </button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Don’t have an account yet?
+              <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign up here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section style="display: none;" class="bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto">
+      <div class="mb-6 text-center lg:hidden">
+        <a href="#" class="inline-flex items-center text-2xl font-semibold text-gray-900 lg:hidden dark:text-white">
+          <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+          Flowbite
+        </a>
+      </div>
+      <div
+        class="w-full mx-auto bg-white rounded-lg shadow dark:bg-gray-800 md:mt-0 sm:max-w-lg xl:p-0 lg:col-span-7 xl:col-span-6">
+        <div class="p-6 space-y-4 lg:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 sm:text-2xl dark:text-white">
+            Create your account
+          </h1>
+          <div class="items-center space-y-3 sm:space-x-4 sm:space-y-0 sm:flex">
+            <a href="#"
+              class="w-full inline-flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              <svg class="w-5 h-5 mr-2" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_13183_10121)">
+                  <path
+                    d="M20.3081 10.2303C20.3081 9.55056 20.253 8.86711 20.1354 8.19836H10.7031V12.0492H16.1046C15.8804 13.2911 15.1602 14.3898 14.1057 15.0879V17.5866H17.3282C19.2205 15.8449 20.3081 13.2728 20.3081 10.2303Z"
+                    fill="#3F83F8" />
+                  <path
+                    d="M10.7019 20.0006C13.3989 20.0006 15.6734 19.1151 17.3306 17.5865L14.1081 15.0879C13.2115 15.6979 12.0541 16.0433 10.7056 16.0433C8.09669 16.0433 5.88468 14.2832 5.091 11.9169H1.76562V14.4927C3.46322 17.8695 6.92087 20.0006 10.7019 20.0006V20.0006Z"
+                    fill="#34A853" />
+                  <path
+                    d="M5.08857 11.9169C4.66969 10.6749 4.66969 9.33008 5.08857 8.08811V5.51233H1.76688C0.348541 8.33798 0.348541 11.667 1.76688 14.4927L5.08857 11.9169V11.9169Z"
+                    fill="#FBBC04" />
+                  <path
+                    d="M10.7019 3.95805C12.1276 3.936 13.5055 4.47247 14.538 5.45722L17.393 2.60218C15.5852 0.904587 13.1858 -0.0287217 10.7019 0.000673888C6.92087 0.000673888 3.46322 2.13185 1.76562 5.51234L5.08732 8.08813C5.87733 5.71811 8.09302 3.95805 10.7019 3.95805V3.95805Z"
+                    fill="#EA4335" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_13183_10121">
+                    <rect width="20" height="20" fill="white" transform="translate(0.5)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Sign up with Google
+            </a>
+            <a href="#"
+              class="w-full inline-flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              <svg class="w-5 h-5 mr-2 text-gray-900 dark:text-white" viewBox="0 0 21 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_13183_29163)">
+                  <path
+                    d="M18.6574 15.5863C18.3549 16.2851 17.9969 16.9283 17.5821 17.5196C17.0167 18.3257 16.5537 18.8838 16.1969 19.1936C15.6439 19.7022 15.0513 19.9627 14.4168 19.9775C13.9612 19.9775 13.4119 19.8479 12.7724 19.585C12.1308 19.3232 11.5412 19.1936 11.0021 19.1936C10.4366 19.1936 9.83024 19.3232 9.18162 19.585C8.53201 19.8479 8.00869 19.985 7.60858 19.9985C7.00008 20.0245 6.39356 19.7566 5.78814 19.1936C5.40174 18.8566 4.91842 18.2788 4.33942 17.4603C3.71821 16.5863 3.20749 15.5727 2.80738 14.4172C2.37887 13.1691 2.16406 11.9605 2.16406 10.7904C2.16406 9.45009 2.45368 8.29407 3.03379 7.32534C3.4897 6.54721 4.09622 5.9334 4.85533 5.4828C5.61445 5.03219 6.43467 4.80257 7.31797 4.78788C7.80129 4.78788 8.4351 4.93738 9.22273 5.2312C10.0081 5.52601 10.5124 5.67551 10.7335 5.67551C10.8988 5.67551 11.4591 5.5007 12.4088 5.15219C13.3069 4.82899 14.0649 4.69517 14.6859 4.74788C16.3685 4.88368 17.6327 5.54699 18.4734 6.74202C16.9685 7.65384 16.2241 8.93097 16.2389 10.5693C16.2525 11.8454 16.7154 12.9074 17.6253 13.7506C18.0376 14.1419 18.4981 14.4444 19.0104 14.6592C18.8993 14.9814 18.7821 15.29 18.6574 15.5863V15.5863ZM14.7982 0.400358C14.7982 1.40059 14.4328 2.3345 13.7044 3.19892C12.8254 4.22654 11.7623 4.82035 10.6093 4.72665C10.5947 4.60665 10.5861 4.48036 10.5861 4.34765C10.5861 3.38743 11.0041 2.3598 11.7465 1.51958C12.1171 1.09416 12.5884 0.740434 13.16 0.458257C13.7304 0.18029 14.2698 0.0265683 14.7772 0.000244141C14.7921 0.133959 14.7982 0.267682 14.7982 0.400345V0.400358Z"
+                    fill="currentColor" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_13183_29163">
+                    <rect width="20" height="20" fill="white" transform="translate(0.5)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Sign up with Apple
+            </a>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+            <div class="px-5 text-center text-gray-500 dark:text-gray-400">
+              or
+            </div>
+            <div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+          </div>
+          <form class="space-y-4 lg:space-y-6" action="#">
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+              <input type="email" name="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com" required="" />
+            </div>
+            <div>
+              <label for="countries"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
+              <select id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected="">Choose a country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+              </select>
+            </div>
+            <div>
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" name="password" id="password" placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required="" />
+            </div>
+            <button type="submit"
+              class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Create an account
+            </button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Already have an account?
+              <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forgot Password -->
+  <section style="display: none;" class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div
+        class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+        <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Forgot your password?
+        </h1>
+        <p class="font-light text-gray-500 dark:text-gray-400">
+          Don't fret! Just type in your email and we will send you a code to
+          reset your password!
+        </p>
+        <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+            <input type="email" name="email" id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="name@company.com" required="" />
+          </div>
+          <button type="submit"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Reset password
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reset Password -->
+  <section style="display: none;" class="bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto">
+    </div>
+    <div class="mb-6 text-center lg:hidden">
+      <a href="#" class="inline-flex items-center text-2xl font-semibold text-gray-900 lg:hidden dark:text-white">
+        <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+        Flowbite
+      </a>
+    </div>
+    <div class="w-full col-span-6 p-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800 md:mt-0 sm:max-w-lg sm:p-8">
+      <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 sm:text-2xl dark:text-white">
+        Create new password
+      </h1>
+      <p class="font-light text-gray-500 dark:text-gray-400">
+        Your new password must be different from previous used passwords.
+      </p>
+      <form class="mt-4 space-y-4 lg:mt-5 lg:space-y-5" action="#">
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+          <input type="email" name="email" id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter your email" required="" />
+        </div>
+        <div>
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New
+            Password</label>
+          <input type="password" name="password" id="password" placeholder="••••••••"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required="" />
+        </div>
+        <div>
+          <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+            password</label>
+          <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required="" />
+        </div>
+        <div class="flex items-center space-x-3">
+          <button type="submit"
+            class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Reset Password
+          </button>
+          <a href="#" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">Return to login</a>
+        </div>
+      </form>
+    </div>
+    </div>
+  </section>
+
+  <!-- 404 Not Found -->
+  <section style="display: none;" class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="mx-auto max-w-screen-sm text-center">
+        <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-blue-600 dark:text-blue-500">404</h1>
+        <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Something's missing.
+        </p>
+        <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Sorry, we can't find that page. You'll find
+          lots to explore on the home page. </p>
+        <a href="#"
+          class="inline-flex text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-900 my-4">Back
+          to Homepage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="display: none;" class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/"
+        class="hover:underline">Hearify™</a>. All Rights Reserved.
+    </span>
+  </footer>
+</body>
+
+</html>
