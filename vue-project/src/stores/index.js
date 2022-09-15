@@ -118,5 +118,30 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async confirm(code) {
+      try {
+        this.loading = true;
+        await axios.patch(
+          `${BASE_URL}/confirm`,
+          {
+            confirmationCode: code,
+          },
+          {
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          }
+        );
+        this.statusRegis = 3;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
