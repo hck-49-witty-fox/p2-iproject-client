@@ -69,5 +69,33 @@ export const useIndexStore = defineStore("index", {
         });
       }
     },
+
+    async login(user) {
+      try {
+        this.loading = true;
+        const response = await axios.post(`${BASE_URL}/login`, {
+          username: user.username,
+          password: user.password,
+        });
+        localStorage.setItem("access_token", response.data.access_token);
+        const response2 = await axios.get(`${BASE_URL}/me`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        if (!response2.data.data.premium || !response2.data.data.isConfirmed) {
+          this.router.push("/signup");
+        } else {
+          this.router.push("/");
+        }
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
