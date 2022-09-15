@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-const baseURL = 'http://localhost:3000';
+const baseURL = 'https://yalaw-forum.herokuapp.com/';
 
 export const useYalawStore = defineStore('Yalaw', {
   state: () => ({
@@ -65,7 +65,7 @@ export const useYalawStore = defineStore('Yalaw', {
 
     async fetchThread() {
       try {
-        const { data } = await axios.get(`${baseURL}/home`);
+        const { data } = await axios.get(`${baseURL}/`);
 
         // console.log(data.data);
         this.threadData = data.data;
