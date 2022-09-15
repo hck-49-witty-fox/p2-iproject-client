@@ -18,7 +18,6 @@ export default {
 
   async mounted() {
     await this.fetchThread();
-    console.log(this.threadData);
   },
 };
 </script>

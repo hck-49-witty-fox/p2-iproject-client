@@ -11,9 +11,8 @@ export default {
 
 <template>
   <Navbar></Navbar>
-  <LoginView></LoginView>
-
-  <RouterView />
+  <!-- <LoginView></LoginView> -->
+  <RouterView></RouterView>
 </template>
 
 <style></style>

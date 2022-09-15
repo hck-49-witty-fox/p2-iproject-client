@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue';
 import ChatView from '@/views/ChatBoxView.vue';
 import LoginView from '@/views/LoginView.vue';
 import DetailView from '@/views/DetailView.vue';
+import RegisterView from '@/views/RegisterView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +12,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: DetailView,
     },
 
     {
@@ -26,9 +33,9 @@ const router = createRouter({
     },
 
     {
-      path: '/detail/:id',
-      name: 'detail',
-      component: DetailView,
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
     },
   ],
 });

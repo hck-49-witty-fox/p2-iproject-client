@@ -40,9 +40,32 @@ export const useYalawStore = defineStore('Yalaw', {
       }
     },
 
+    async register(cred) {
+      try {
+        // console.log(cred);
+        await axios.post(`${baseURL}/user/register`, {
+          username: cred.username,
+          firstName: cred.firstName,
+          lastName: cred.lastName,
+          password: cred.password,
+        });
+
+        // localStorage.setItem('access_token', data.access_token);
+
+        this.router.push('/login');
+        // this.isLoggedIn = true;
+
+        // localStorage.setItem('name', data.name);
+        // localStorage.setItem('fullName', data.fullName);
+        // this.fullName = data.fullName;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
     async fetchThread() {
       try {
-        const { data } = await axios.get(`${baseURL}/home`, {});
+        const { data } = await axios.get(`${baseURL}/home`);
 
         // console.log(data.data);
         this.threadData = data.data;
@@ -53,10 +76,12 @@ export const useYalawStore = defineStore('Yalaw', {
 
     async fetchThreadById(id) {
       try {
-        const { data } = await axios.get(`${baseURL}/thread/${id}`, {});
+        console.log(id);
+        const { data } = await axios.get(`${baseURL}/thread/${id}`);
+
+        console.log(data);
 
         this.threadData = data.data;
-
         this.router.push(`/detail/${id}`);
       } catch (err) {
         console.log(err);

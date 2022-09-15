@@ -5,15 +5,19 @@ import { useYalawStore } from '../stores/yalaw';
 export default {
   props: ['post'],
 
-  methods: {
-    ...mapActions(useYalawStore, ['fetchThreadById']),
-  },
-
-  methods: {
+  computed: {
     ...mapState(useYalawStore, ['threadById']),
   },
 
+  methods: {
+    ...mapActions(useYalawStore, ['fetchThreadById']),
+
+    // fetch() {
+    //   this.fetchThreadById(this.threadById.id);
+    // },
+  },
   mounted() {
+    // console.log(this.post.User.username);
     console.log(this.threadById);
     // console.log(this.post.User.username);
   },
@@ -22,8 +26,8 @@ export default {
 <template>
   <!-- post component -->
   <div
+    @click.prevent="this.fetchThreadById(post.id)"
     class="py-2"
-    @click="this.fetchThreadById(this.post.id)"
   >
     <div
       class="flex border border-grey-light-alt hover:border-grey rounded bg-white cursor-pointer"
