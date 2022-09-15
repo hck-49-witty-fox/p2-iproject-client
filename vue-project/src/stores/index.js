@@ -143,5 +143,27 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async getFeaturedPlaylist() {
+      try {
+        this.loading = true;
+        const response = await axios.get(
+          `${BASE_URL}/api/get-featured-playlist`,
+          {
+            headers: {
+              access_token: localStorage.getItem("access_token"),
+            },
+          }
+        );
+        this.featuredPlaylist = response.data.data;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
