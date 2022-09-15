@@ -329,5 +329,24 @@ export const useIndexStore = defineStore("index", {
         this.loading = false;
       }
     },
+
+    async getMyPlaylist() {
+      try {
+        this.loading = true;
+        const response = await axios.get(`${BASE_URL}/playlist`, {
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        this.myPlaylist = response.data.data;
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: error.response.data.message,
+        });
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
