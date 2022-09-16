@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:3000";
+// const baseUrl = "http://localhost:3000";
+const baseUrl = "https://nunin-iproject.herokuapp.com";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { defineStore } from "pinia";
