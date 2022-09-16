@@ -1,0 +1,29 @@
+[debug] [2022-09-15T01:21:08.170Z] ----------------------------------------------------------------------
+[debug] [2022-09-15T01:21:08.171Z] Command:       /usr/local/bin/firebase /Users/novrend/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init hosting
+[debug] [2022-09-15T01:21:08.171Z] CLI Version:   11.8.0
+[debug] [2022-09-15T01:21:08.171Z] Platform:      darwin
+[debug] [2022-09-15T01:21:08.171Z] Node Version:  v16.16.0
+[debug] [2022-09-15T01:21:08.172Z] Time:          Thu Sep 15 2022 08:21:08 GMT+0700 (Western Indonesia Time)
+[debug] [2022-09-15T01:21:08.172Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-15T01:21:08.176Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-09-15T01:21:08.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-15T01:21:08.196Z] > authorizing via signed-in user (ihzan0@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/novrend/Downloads/Hacktiv8/Phase2/p2-client
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
