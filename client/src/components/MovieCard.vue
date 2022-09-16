@@ -14,13 +14,14 @@
                         <div class="small font-italic text-muted mb-4">{{ cardDatas.original_title }}</div>
 
                         <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
+                        <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
                     </div>
                 </div>
             </div>
     </div>
 </div>                   
 </template>
+
 
 <script>
     import { mapActions } from 'pinia';

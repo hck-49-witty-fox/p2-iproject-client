@@ -47,6 +47,12 @@
         components: { HeaderBar, FooterBar, MovieCard },
         computed : {
             ...mapState(useMovieStore, ['nowPlayingMovies'])
+        },
+        methods : {
+            ...mapActions(useMovieStore, ['nowplaying'])
+        },
+        created() {
+            this.nowplaying()
         }
     };
 </script>

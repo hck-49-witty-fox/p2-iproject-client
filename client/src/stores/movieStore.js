@@ -19,6 +19,7 @@ export const useMovieStore = defineStore('movie', {
                 const nowPlayingMovies = await axios.get(`${baseUrl}/movie/nowplaying`)
 
                 this.nowPlayingMovies = nowPlayingMovies.data.data
+                console.log(this.nowPlayingMovies);
 
                 console.log(this.nowPlayingMovies);
             } catch (error) {
